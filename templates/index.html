@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skinlyze - AI Skin Analysis</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body class="home-page">
+
+  <!-- NAV -->
+  <nav>
+    <a class="logo" href="/">
+      <span class="logo-text">Skin<span>lyze</span></span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/" class="active">Home</a></li>
+      <li><a href="/analyze">Analyze</a></li>
+      <li><a href="/awareness">Awareness</a></li>
+    </ul>
+    <div class="hamburger" onclick="toggleMenu()" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <img class="hero-bg-image" src="{{ url_for('static', filename='images/doctor-doing-check-patient-with-skin-cancer.jpg') }}" alt="" />
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-badge">AI-Powered Dermatology Tool</div>
+        <h1>Skin Lesion Analysis<br>Powered by <em>Advanced AI</em></h1>
+        <p>Skinlyze uses deep learning and computer vision to analyze skin lesions for early signs of concern - providing professional-grade insights instantly.</p>
+        <div class="hero-buttons">
+          <a href="/analyze" class="btn-primary">Start Free Analysis</a>
+          <a href="/awareness" class="btn-secondary">Learn More</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-card">
+          <div class="hero-card-header">
+            <div class="hero-card-icon">
+              <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l7.59-7.59L21 8l-9 9z"/></svg>
+            </div>
+            <div>
+              <div class="hero-card-title">Analysis Report</div>
+              <div class="hero-card-sub">AI + ABC Model</div>
+            </div>
+          </div>
+          <div class="metric-row">
+            <div class="metric">
+              <div class="metric-label">Result</div>
+              <div class="metric-val">Suspicious</div>
+            </div>
+            <div class="metric">
+              <div class="metric-label">Method</div>
+              <div class="metric-val">ABC</div>
+            </div>
+            <div class="metric">
+              <div class="metric-label">Max Time</div>
+              <div class="metric-val">30s</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIVE STATS -->
+  <section class="live-stats">
+    <div class="live-stats-inner">
+      <div class="live-stats-header">
+        <div class="live-dot"></div>
+        <span>Live Statistics</span>
+      </div>
+      <div class="live-stats-grid">
+        <div class="live-stat">
+          <div class="live-stat-val" id="statTotal">-</div>
+          <div class="live-stat-label">Total Analyses</div>
+        </div>
+        <div class="live-stat">
+          <div class="live-stat-val suspicious" id="statSuspicious">-</div>
+          <div class="live-stat-label">Suspicious Cases</div>
+        </div>
+        <div class="live-stat">
+          <div class="live-stat-val safe" id="statSafe">-</div>
+          <div class="live-stat-label">Safe Cases</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAVE TRANSITION -->
+  <div style="background: var(--navy); line-height: 0; margin-bottom: -2px;">
+    <svg viewBox="0 0 1440 70" preserveAspectRatio="none" style="width: 100%; height: 70px; display: block;">
+      <path d="M0,35 C240,70 480,0 720,35 C960,70 1200,0 1440,35 L1440,70 L0,70 Z" fill="#f4f7fc"/>
+    </svg>
+  </div>
+
+  <!-- FEATURES WRAPPER -->
+  <div style="background: var(--off-white);">
+
+    <!-- FEATURES -->
+    <section class="features">
+      <div class="section-tag">Why Skinlyze</div>
+      <h2 class="section-title">Professional Analysis,<br>Instantly Available</h2>
+      <p class="section-sub">Combining a trained EfficientNet-B3 model with the clinical ABC method for comprehensive lesion evaluation.</p>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon blue">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="26" height="26">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 0 0 2.25-2.25V6.75a2.25 2.25 0 0 0-2.25-2.25H6.75A2.25 2.25 0 0 0 4.5 6.75v10.5a2.25 2.25 0 0 0 2.25 2.25Zm.75-12h9v9h-9v-9Z" />
+            </svg>
+          </div>
+          <h3>Deep Learning Model</h3>
+          <p>Trained on thousands of dermoscopic images using EfficientNet-B3 architecture for accurate suspicious lesion detection.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon teal">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="26" height="26">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0 1 12 15a9.065 9.065 0 0 1-6.23-.693L5 14.5m14.8.8 1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0 1 12 21a48.309 48.309 0 0 1-8.135-.687c-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
+            </svg>
+          </div>
+          <h3>ABC Analysis</h3>
+          <p>Automated Asymmetry, Border, and Color analysis using advanced image segmentation - the same method used by dermatologists.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon navy">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="26" height="26">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" />
+            </svg>
+          </div>
+          <h3>Fast & Accessible</h3>
+          <p>Results in under 30 seconds. Works on any device - desktop or mobile. No app download required.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how-it-works">
+      <div class="how-inner">
+        <div class="steps-header">
+          <div class="section-tag" style="text-align:center;">How It Works</div>
+          <h2 class="section-title" style="text-align:center;">Four Simple Steps</h2>
+          <p class="section-sub" style="text-align:center; margin:0 auto 0;">From photo to professional result in seconds.</p>
+        </div>
+
+        <div class="slider-wrap">
+          <div class="slider-track" id="stepsTrack">
+
+            <div class="slide">
+              <div class="slide-card">
+                <div class="slide-circle">1</div>
+                <div class="slide-h">Capture a Photo</div>
+                <div class="slide-p">Take a clear, close-up photo of the lesion on a clean skin background with good lighting. Make sure the lesion is centered and in sharp focus.</div>
+              </div>
+            </div>
+
+            <div class="slide">
+              <div class="slide-card">
+                <div class="slide-circle">2</div>
+                <div class="slide-h">Upload & Analyze</div>
+                <div class="slide-p">Upload the image to Skinlyze. Our AI model and ABC algorithm analyze it simultaneously, delivering a result in under 30 seconds.</div>
+              </div>
+            </div>
+
+            <div class="slide">
+              <div class="slide-card">
+                <div class="slide-circle">3</div>
+                <div class="slide-h">Review Your Result</div>
+                <div class="slide-p">Receive a clear result - Suspicious or Not Suspicious - along with an ABC analysis and a clinical explanation of the findings.</div>
+              </div>
+            </div>
+
+            <div class="slide">
+              <div class="slide-card">
+                <div class="slide-circle">4</div>
+                <div class="slide-h">Consult a Doctor</div>
+                <div class="slide-p">If results indicate suspicion, consult a licensed dermatologist for professional evaluation. Early detection significantly improves treatment outcomes.</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="steps-progress-bar"><div class="steps-progress-fill" id="stepsProgressFill"></div></div>
+
+        <div class="slider-controls">
+          <button class="ctrl-btn" id="stepsPrev" aria-label="Previous">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" width="20" height="20">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5"/>
+            </svg>
+          </button>
+          <div class="steps-dots" id="stepsDots">
+            <div class="steps-dot active" onclick="stepsGoTo(0)"></div>
+            <div class="steps-dot" onclick="stepsGoTo(1)"></div>
+            <div class="steps-dot" onclick="stepsGoTo(2)"></div>
+            <div class="steps-dot" onclick="stepsGoTo(3)"></div>
+          </div>
+          <button class="ctrl-btn" id="stepsNext" aria-label="Next">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" width="20" height="20">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2>Ready to Analyze Your Skin?</h2>
+    <p>It's free, fast, and takes less than a minute. Early detection saves lives.</p>
+    <a href="/analyze" class="btn-primary">Start Your Analysis</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <strong>Skinlyze</strong> - AI Skin Lesion Analysis Tool &nbsp;·&nbsp;
+    For educational purposes only. Not a substitute for professional medical advice.
+  </footer>
+
+  <script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+</html>

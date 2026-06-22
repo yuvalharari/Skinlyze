@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skinlyze - Awareness</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="logo" href="/">
+      <span class="logo-text">Skin<span>lyze</span></span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/">Home</a></li>
+      <li><a href="/analyze">Analyze</a></li>
+      <li><a href="/awareness" class="active">Awareness</a></li>
+    </ul>
+    <div class="hamburger" onclick="toggleMenu()" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- AWARENESS PAGE CONTENT -->
+  <div class="awareness-page">
+
+    <!-- PAGE HERO -->
+    <div class="awareness-hero">
+      <h1>Skin Cancer Awareness</h1>
+      <p>Knowledge and early detection are your most powerful tools. Learn to recognize the warning signs.</p>
+    </div>
+
+    <!-- STATISTICS -->
+    <div class="stats-row">
+      <div class="stat-box">
+        <div class="stat-val">1.5M+</div>
+        <div class="stat-label">New skin cancer cases diagnosed worldwide in 2020 (IARC/WHO)</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-val">325,000</div>
+        <div class="stat-label">New melanoma cases diagnosed globally in 2020 (IARC/WHO)</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-val">500,000+</div>
+        <div class="stat-label">Melanoma cases expected per year by 2040 - a 50% increase (IARC/WHO)</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-val">Earlier</div>
+        <div class="stat-label">Early diagnosis improves survival, reduces costs and enables more effective treatment (WHO)</div>
+      </div>
+    </div>
+
+    <!-- SKIN CONDITIONS -->
+    <div class="section-tag">Common Conditions</div>
+    <h2 class="section-title">Types of Skin Lesions</h2>
+    <p class="section-sub">
+      The following lesion types are recognized and analyzed by the Skinlyze model, trained on the HAM10000 dataset.
+      These descriptions are provided for educational purposes and reflect common clinical characteristics.
+    </p>
+
+    <div class="conditions-grid">
+
+      <div class="condition-card">
+        <div class="condition-icon condition-icon-suspicious">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="32" height="32">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+          </svg>
+        </div>
+        <h3>Melanoma (MEL)</h3>
+        <p>The most dangerous form of skin cancer. Originates from melanocytes and may present as an asymmetrical lesion with irregular borders, multiple colors, and changes over time (evolution). Early detection is critical for survival.</p>
+        <span class="condition-tag tag-high">Suspicious</span>
+      </div>
+
+      <div class="condition-card">
+        <div class="condition-icon condition-icon-suspicious">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="32" height="32">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+          </svg>
+        </div>
+        <h3>Basal Cell Carcinoma (BCC)</h3>
+        <p>The most common type of skin cancer. Typically slow-growing and rarely metastasizes, but may cause significant local damage if untreated. Often appears as a pearly bump, translucent lesion, or may ulcerate and bleed.</p>
+        <span class="condition-tag tag-high">Suspicious</span>
+      </div>
+
+      <div class="condition-card">
+        <div class="condition-icon condition-icon-suspicious">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="32" height="32">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+          </svg>
+        </div>
+        <h3>Actinic Keratosis (AKIEC)</h3>
+        <p>A rough, scaly patch caused by long-term ultraviolet (UV) exposure. Considered a pre-cancerous lesion with potential progression to squamous cell carcinoma if left untreated.</p>
+        <span class="condition-tag tag-high">Suspicious</span>
+      </div>
+
+      <div class="condition-card">
+        <div class="condition-icon condition-icon-safe">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="32" height="32">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+          </svg>
+        </div>
+        <h3>Melanocytic Nevi (NV)</h3>
+        <p>Common moles resulting from a benign proliferation of melanocytes. Usually harmless and symmetric in appearance, but any changes in size, shape, or color should be evaluated by a dermatologist.</p>
+        <span class="condition-tag tag-low">Not Suspicious</span>
+      </div>
+
+      <div class="condition-card">
+        <div class="condition-icon condition-icon-safe">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="32" height="32">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+          </svg>
+        </div>
+        <h3>Benign Keratosis (BKL)</h3>
+        <p>A group of non-cancerous skin growths including seborrheic keratosis and solar lentigo. These lesions are generally benign and do not require treatment unless for cosmetic reasons or if symptomatic.</p>
+        <span class="condition-tag tag-low">Not Suspicious</span>
+      </div>
+
+      <div class="condition-card">
+        <div class="condition-icon condition-icon-safe">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="32" height="32">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+          </svg>
+        </div>
+        <h3>Dermatofibroma (DF)</h3>
+        <p>A common benign skin lesion, often found on the legs. Typically firm to the touch and may exhibit a characteristic "dimple sign" when pinched. Usually harmless and requires no treatment.</p>
+        <span class="condition-tag tag-low">Not Suspicious</span>
+      </div>
+
+      <div class="condition-card">
+        <div class="condition-icon condition-icon-safe">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="32" height="32">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+          </svg>
+        </div>
+        <h3>Vascular Lesions (VASC)</h3>
+        <p>Lesions originating from blood vessels, including cherry angiomas and other vascular abnormalities. These are generally benign and not associated with skin cancer.</p>
+        <span class="condition-tag tag-low">Not Suspicious</span>
+      </div>
+
+    </div>
+
+    <!-- ABCDE RULE -->
+    <div class="abc-explainer">
+      <h2>The ABCDE Rule</h2>
+      <p>A simple guide used by dermatologists to identify potential warning signs of melanoma.</p>
+      <div class="abc-rows">
+        <div class="abc-row">
+          <div class="abc-row-letter A">A</div>
+          <div class="abc-row-content">
+            <h4>Asymmetry</h4>
+            <p>One half of the mole does not match the other. Benign moles are usually symmetrical.</p>
+          </div>
+        </div>
+        <div class="abc-row">
+          <div class="abc-row-letter B">B</div>
+          <div class="abc-row-content">
+            <h4>Border</h4>
+            <p>Irregular, ragged, notched, or blurred borders are warning signs. Benign moles have smooth, even borders.</p>
+          </div>
+        </div>
+        <div class="abc-row">
+          <div class="abc-row-letter C">C</div>
+          <div class="abc-row-content">
+            <h4>Color</h4>
+            <p>Variation in color - shades of brown, black, red, white, or blue - can indicate melanoma.</p>
+          </div>
+        </div>
+        <div class="abc-row">
+          <div class="abc-row-letter D">D</div>
+          <div class="abc-row-content">
+            <h4>Diameter</h4>
+            <p>Lesions larger than 6mm (about the size of a pencil eraser) warrant attention, though smaller ones can also be dangerous.</p>
+          </div>
+        </div>
+        <div class="abc-row">
+          <div class="abc-row-letter E">E</div>
+          <div class="abc-row-content">
+            <h4>Evolution</h4>
+            <p>Any change in size, shape, color, or symptoms such as bleeding or itching over time should be evaluated by a dermatologist.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EARLY DETECTION CTA -->
+    <div class="early-detection">
+      <h2>Early Detection Saves Lives</h2>
+      <a href="/analyze" class="btn-primary">Analyze Your Skin Now</a>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <strong>Skinlyze</strong> - AI Skin Lesion Analysis Tool &nbsp;·&nbsp;
+    For educational purposes only. Not a substitute for professional medical advice.
+  </footer>
+
+  <script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+flask
+gunicorn
+torch
+torchvision
+timm
+pillow
+numpy
+opencv-python-headless
+scikit-learn
+scikit-image
+psutil
+requests
+transformers
