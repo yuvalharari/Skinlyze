@@ -14,8 +14,14 @@ The system also performs lesion segmentation and provides an ABCDE-based analysi
 * Python
 * Flask
 * PyTorch
+* TorchVision
+* TIMM
+* Transformers
 * OpenCV
+* Pillow
+* NumPy
 * Scikit-image
+* Scikit-learn
 * HTML
 * CSS
 * JavaScript
